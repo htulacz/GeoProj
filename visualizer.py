@@ -15,7 +15,7 @@ def draw_halfedge_structure(halfedge, mesh):
     average_length = sum(lengths) / len(lengths)
 
     # Dostosowanie offset i shortening
-    scale_factor = average_length / 5  # Można dostosować według potrzeb
+    scale_factor = average_length / 7.5  # Można dostosować według potrzeb
     offset = 0.1 * scale_factor
     shortening = 0.1 * scale_factor
 
