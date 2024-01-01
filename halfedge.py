@@ -8,13 +8,15 @@ class HalfEdge:
         
 
 class Vertex:
-    def __init__(self,cords) -> None:
+    def __init__(self,cords,index) -> None:
         self.cords = cords
+        self.index = index
         self.halfEdge = None
 
 class Face:
-    def __init__(self,points) -> None:
+    def __init__(self,points,index) -> None:
         self.points = points
+        self.index = index
         self.halfEdge = None
 
 def ccw(a, b, c):
@@ -25,8 +27,8 @@ def sort_points(points):
     return sorted(points, key=lambda p: ccw(base_point, p[0], (p[0][0], p[0][1] + 1)),reverse=True) 
 
 def create_half_edge_structure(points,triangles):
-    p = [Vertex(cords) for cords in points]
-    t = [Face(inds) for inds in triangles]
+    p = [Vertex(cords,i) for i,cords in enumerate(points)]
+    t = [Face(inds,i) for i,inds in enumerate(triangles)]
     half_edge = []
     for i,(p1,p2,p3) in enumerate(triangles):
         temp = [(points[p1],p1),(points[p2],p2),(points[p3],p3)]
