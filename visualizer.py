@@ -5,7 +5,6 @@ def draw_halfedge_structure(halfedge, mesh):
     j = 0
     c = ['red', 'magenta', 'green', 'orange', 'purple', 'black']
 
-    # Obliczenie średniej długości krawędzi
     lengths = []
     for section in mesh:
         dx = section[1][0] - section[0][0]
@@ -14,7 +13,6 @@ def draw_halfedge_structure(halfedge, mesh):
         lengths.append(length)
     average_length = sum(lengths) / len(lengths)
 
-    # Dostosowanie offset i shortening
     scale_factor = average_length 
     offset = 0.01 * scale_factor
     shortening = 0.1 * scale_factor
