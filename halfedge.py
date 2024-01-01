@@ -8,9 +8,8 @@ class HalfEdge:
         
 
 class Vertex:
-    def __init__(self,cords,i) -> None:
+    def __init__(self,cords) -> None:
         self.cords = cords
-        self.index = i
         self.halfEdge = None
 
 class Face:
@@ -26,7 +25,7 @@ def sort_points(points):
     return sorted(points, key=lambda p: ccw(base_point, p[0], (p[0][0], p[0][1] + 1)),reverse=True) 
 
 def create_half_edge_structure(points,triangles):
-    p = [Vertex(cords,i) for i,cords in enumerate(points)]
+    p = [Vertex(cords) for cords in points]
     t = [Face(inds) for inds in triangles]
     half_edge = []
     for i,(p1,p2,p3) in enumerate(triangles):
@@ -48,14 +47,12 @@ def create_half_edge_structure(points,triangles):
         half_edge.extend([h1,h2,h3])
     
     for i in range(len(half_edge)):
-        for j in range(len(half_edge)):
-            if i == j:
-                continue
+        for j in range(i+1,len(half_edge)):
             if half_edge[i].next.vertex == half_edge[j].vertex and half_edge[j].next.vertex == half_edge[i].vertex:
                 half_edge[i].twin = half_edge[j]
                 half_edge[j].twin = half_edge[i]
                 
-    return sorted(half_edge,key=lambda v: v.vertex.index)
+    return half_edge
 
         
     
