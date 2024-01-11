@@ -6,10 +6,11 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'GeoProj'
+project = 'Algorytmy Geometryczne'
 copyright = '2024, Michał Ramut, Hubert Tułacz'
 author = 'Michał Ramut, Hubert Tułacz'
-release = '1'
+release = ''
+latex_elements = { 'releasename': '' }
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

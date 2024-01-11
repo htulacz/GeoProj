@@ -1,5 +1,5 @@
-GeoProj-dcb1509
-===============
+Przetwarzanie i przechowywanie opisu siatki trójkątnej na płaszczyźnie
+======================================================================
 
 .. toctree::
    :maxdepth: 4
