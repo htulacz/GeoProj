@@ -37,7 +37,7 @@ def draw_halfedge_structure(halfedge, mesh):
         end = (start[0] + (end[0] - start[0]) * (1 - shortening), start[1] + (end[1] - start[1]) * (1 - shortening))
         start = (start[0] + (end[0] - start[0]) * (1 - shortening), start[1] + (end[1] - start[1]) * (1 - shortening))
 
-        plt.arrow(start[0], start[1], end[0] - start[0], end[1] - start[1], head_width=offset, head_length=offset, fc=c[j], ec=c[j])
+        plt.arrow(start[0], start[1], end[0] - start[0], end[1] - start[1], head_width=offset*2, head_length=offset*2, fc=c[j], ec=c[j])
 
         i += 1
         j = (i // 3) % 6
